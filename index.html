@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plataforma Sello PRO — Documento de levantamiento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Sello PRO — base de marca */
+  --verde: #35d38b;
+  --verde-dark: #1fa86b;
+  --verde-soft: #d6f5e6;
+  --negro: #1f1f1f;
+  --negro-soft: #2a2a2a;
+  --negro-card: #1a1a1a;
+  /* Compromiso PRO — paraguas */
+  --azul: #006edc;
+  --naranja: #e74100;
+  --azul-dark: #003b73;
+  /* Pilares (del brandbook) */
+  --p-gobernanza: #005d82;
+  --p-trabajadores: #32bef0;
+  --p-seguridad: #5f46cc;
+  --p-cadena: #c45bb5;
+  --p-comunidad: #e98c45;
+  --p-medioambiente: #b2bf30;
+  --p-innovacion: #e2b530;
+  /* Neutros */
+  --bg: #f4f4f0;
+  --bg-card: #ffffff;
+  --bg-dark: #1f1f1f;
+  --texto: #1a1a1a;
+  --texto-suave: #4a4a4a;
+  --texto-muy-suave: #888;
+  --linea: #d8d8d0;
+  --linea-suave: #e8e8e0;
+  --linea-fuerte: #1f1f1f;
+
+  --display: 'Fraunces', Georgia, serif;
+  --sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--bg);
+  color:var(--texto);
+  line-height:1.55;
+  font-size:16px;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(circle at 0% 0%, rgba(53,211,139,0.04) 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(53,211,139,0.03) 0%, transparent 50%);
+  background-attachment:fixed;
+}
+
+/* ============ NAVEGACIÓN ============ */
+.nav-top{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:var(--negro);
+  color:#fff;
+  border-bottom:1px solid #000;
+  padding:10px 28px;
+  display:flex;justify-content:space-between;align-items:center;
+  min-height:60px;
+}
+.nav-top .brand{
+  display:flex;align-items:center;gap:14px;
+  font-weight:700;font-size:12px;letter-spacing:.06em;
+  color:#fff;
+}
+.nav-top .brand .divisor{
+  width:1px;height:20px;background:#444;display:inline-block;
+}
+.nav-top .brand .crumb{color:#888;font-weight:500}
+.nav-top .logo-sellopro{height:36px;width:auto;display:block}
+.nav-top .logo-compromiso{height:26px;width:auto;display:block}
+.nav-top .meta{
+  font-family:var(--mono);font-size:10.5px;color:#aaa;
+  display:flex;gap:18px;
+}
+.nav-top .meta span{display:flex;align-items:center;gap:6px}
+.nav-top .meta .dot{width:6px;height:6px;border-radius:50%;background:var(--verde);box-shadow:0 0 10px var(--verde)}
+
+/* Isotipo SVG inline para reusarlo */
+.iso{width:22px;height:22px;display:inline-block;vertical-align:middle}
+
+/* ============ LAYOUT PRINCIPAL ============ */
+.shell{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  max-width:1480px;
+  margin:0 auto;
+  padding-top:60px;
+}
+
+.sidebar{
+  position:sticky;top:60px;
+  height:calc(100vh - 60px);
+  overflow-y:auto;
+  padding:48px 28px 48px 32px;
+  border-right:1px solid var(--linea);
+  background:transparent;
+}
+.sidebar h4{
+  font-family:var(--mono);
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:var(--texto-muy-suave);
+  margin:24px 0 10px;
+  font-weight:500;
+}
+.sidebar h4:first-child{margin-top:0}
+.sidebar a{
+  display:block;
+  padding:6px 0;
+  color:var(--texto);
+  text-decoration:none;
+  font-size:13.5px;
+  font-weight:500;
+  border-left:2px solid transparent;
+  padding-left:12px;
+  margin-left:-12px;
+  transition:all .15s ease;
+}
+.sidebar a:hover{color:var(--verde-dark);border-left-color:var(--verde-dark)}
+.sidebar a.active{color:var(--verde-dark);border-left-color:var(--verde);font-weight:700}
+
+.main{padding:0 64px 120px}
+
+/* ============ HERO ============ */
+.hero{
+  padding:80px 0 60px;
+  border-bottom:2px solid var(--linea-fuerte);
+  position:relative;
+}
+.hero .label{
+  font-family:var(--mono);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  color:var(--verde-dark);
+  font-weight:700;
+  margin-bottom:24px;
+  display:flex;align-items:center;gap:12px;
+}
+.hero .label::before{
+  content:"";width:32px;height:1px;background:var(--verde-dark);
+}
+.hero h1{
+  font-family:var(--display);
+  font-size:clamp(40px,5.5vw,76px);
+  line-height:1;
+  font-weight:500;
+  letter-spacing:-.025em;
+  margin-bottom:28px;
+  font-variation-settings:"opsz" 144;
+}
+.hero h1 em{
+  font-style:italic;
+  font-weight:400;
+  color:var(--verde-dark);
+}
+.hero .deck{
+  font-size:20px;
+  line-height:1.4;
+  max-width:760px;
+  color:var(--texto-suave);
+  font-weight:300;
+}
+.hero .meta-row{
+  margin-top:40px;
+  display:flex;gap:48px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:11.5px;
+}
+.hero .meta-row > div{display:flex;flex-direction:column;gap:4px}
+.hero .meta-row .k{color:var(--texto-muy-suave);text-transform:uppercase;letter-spacing:.1em;font-size:10px}
+.hero .meta-row .v{color:var(--texto);font-weight:600}
+
+/* Flecha-isotipo decorativa en hero */
+.hero-iso{
+  position:absolute;
+  right:-20px;top:50px;
+  width:260px;height:260px;
+  opacity:.1;
+  pointer-events:none;
+}
+
+/* ============ TIPOGRAFÍA SECCIONES ============ */
+section{padding:80px 0;border-bottom:1px solid var(--linea)}
+section:last-child{border-bottom:none}
+
+.sec-num{
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--verde-dark);
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  font-weight:700;
+  margin-bottom:16px;
+  display:block;
+}
+h2{
+  font-family:var(--display);
+  font-size:clamp(32px,3.5vw,52px);
+  line-height:1.05;
+  font-weight:500;
+  letter-spacing:-.02em;
+  margin-bottom:24px;
+  max-width:880px;
+}
+h2 em{font-style:italic;font-weight:400;color:var(--verde-dark)}
+h3{
+  font-family:var(--sans);
+  font-size:22px;
+  font-weight:700;
+  margin:40px 0 14px;
+  letter-spacing:-.01em;
+}
+h4{
+  font-family:var(--sans);
+  font-size:15px;
+  font-weight:700;
+  margin:24px 0 10px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+p{margin-bottom:16px;max-width:780px;color:var(--texto)}
+p.lead{font-size:19px;line-height:1.5;color:var(--texto-suave);font-weight:300;max-width:780px}
+strong{font-weight:700;color:var(--texto)}
+em{font-style:italic}
+
+/* ============ ALERTA / CALLOUT ============ */
+.callout{
+  background:var(--bg-dark);
+  color:#fff;
+  padding:36px 40px;
+  border-radius:0;
+  margin:32px 0 40px;
+  position:relative;
+  overflow:hidden;
+}
+.callout::before{
+  content:"";position:absolute;top:0;left:0;width:6px;height:100%;
+  background:var(--naranja);
+}
+.callout .tag{
+  display:inline-block;
+  font-family:var(--mono);font-size:10px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--naranja);
+  margin-bottom:14px;font-weight:700;
+}
+.callout p{color:#e4e4e4;max-width:none}
+.callout strong{color:#fff}
+
+.callout.verde::before{background:var(--verde)}
+.callout.verde .tag{color:var(--verde)}
+
+/* ============ GRID ROLES ============ */
+.roles-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1px;
+  background:var(--linea);
+  border:1px solid var(--linea);
+  margin:32px 0;
+}
+.role{
+  background:var(--bg-card);
+  padding:28px 26px;
+  position:relative;
+  min-height:200px;
+  transition:transform .2s ease;
+}
+.role:hover{transform:translateY(-2px);z-index:2;box-shadow:0 12px 32px rgba(0,0,0,.08)}
+.role .role-num{
+  font-family:var(--mono);font-size:10px;color:var(--texto-muy-suave);
+  letter-spacing:.1em;text-transform:uppercase;
+}
+.role h4{
+  font-family:var(--display);
+  font-size:22px;
+  text-transform:none;
+  letter-spacing:-.01em;
+  margin:6px 0 14px;
+  font-weight:600;
+  color:var(--negro);
+}
+.role .role-role{font-size:13px;color:var(--texto-suave);margin-bottom:12px;line-height:1.45}
+.role .role-vista{
+  font-family:var(--mono);font-size:11px;
+  border-top:1px solid var(--linea);padding-top:12px;color:var(--verde-dark);
+  font-weight:700;
+}
+
+/* ============ PILARES ============ */
+.pilares{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:8px;
+  margin:32px 0;
+}
+.pilar{
+  padding:18px 14px;
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  line-height:1.2;
+  min-height:120px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  position:relative;
+  overflow:hidden;
+}
+.pilar .num{
+  position:absolute;top:10px;right:12px;
+  font-family:var(--mono);font-size:10px;opacity:.6;
+}
+.p1{background:var(--p-gobernanza)}
+.p2{background:var(--p-trabajadores);color:#003}
+.p3{background:var(--p-seguridad)}
+.p4{background:var(--p-cadena)}
+.p5{background:var(--p-comunidad)}
+.p6{background:var(--p-medioambiente);color:#1a1a00}
+.p7{background:var(--p-innovacion);color:#1a1a00}
+
+/* ============ CUESTIONARIOS - MATRIZ ============ */
+.matriz{
+  margin:24px 0;
+  border:1px solid var(--linea-fuerte);
+  display:grid;
+  grid-template-columns:120px repeat(4,1fr);
+  font-family:var(--mono);
+  font-size:12px;
+}
+.matriz > div{
+  padding:14px 16px;
+  border-right:1px solid var(--linea);
+  border-bottom:1px solid var(--linea);
+}
+.matriz > div:nth-child(5n){border-right:none}
+.matriz .hdr{
+  background:var(--negro);color:#fff;
+  font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:10px;
+}
+.matriz .row-label{
+  background:#ececdf;font-weight:700;
+}
+.matriz .cell{
+  background:#fff;
+  display:flex;align-items:center;gap:8px;
+}
+.matriz .cell .num{
+  display:inline-flex;
+  width:26px;height:26px;
+  background:var(--verde);
+  color:var(--negro);
+  border-radius:50%;
+  align-items:center;justify-content:center;
+  font-weight:800;font-size:11px;
+}
+
+/* ============ VISTAS - TARJETAS GRANDES ============ */
+.vista-card{
+  background:var(--bg-card);
+  border:1px solid var(--linea);
+  margin:40px 0;
+  display:grid;
+  grid-template-columns:280px 1fr;
+  min-height:300px;
+  position:relative;
+  overflow:hidden;
+}
+.vista-card .izq{
+  background:var(--negro);
+  color:#fff;
+  padding:36px 32px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;
+  overflow:hidden;
+}
+.vista-card .izq::before{
+  content:"";position:absolute;bottom:0;right:0;
+  width:120px;height:120px;
+  background:var(--verde);
+  clip-path:polygon(0 100%,100% 100%,100% 0);
+  opacity:.18;
+}
+.vista-card .izq::after{
+  content:"";position:absolute;top:0;left:0;
+  width:4px;height:60%;
+  background:var(--verde);
+}
+.vista-card .vista-num{
+  font-family:var(--mono);font-size:11px;letter-spacing:.15em;
+  color:var(--verde);font-weight:700;text-transform:uppercase;
+}
+.vista-card .vista-nom{
+  font-family:var(--display);
+  font-size:30px;
+  line-height:1.05;
+  font-weight:500;
+  margin:18px 0;
+  letter-spacing:-.01em;
+}
+.vista-card .vista-actor{
+  font-size:13px;color:#aaa;line-height:1.4;
+  border-top:1px solid #333;padding-top:14px;
+}
+.vista-card .der{padding:36px 40px}
+.vista-card .der h4{margin-top:0}
+.vista-card ul{list-style:none;margin:0}
+.vista-card ul li{
+  padding:10px 0 10px 24px;
+  border-bottom:1px dashed var(--linea);
+  position:relative;
+  font-size:14.5px;
+  line-height:1.5;
+}
+.vista-card ul li::before{
+  content:"";position:absolute;left:0;top:18px;
+  width:10px;height:1px;background:var(--verde-dark);
+}
+.vista-card ul li:last-child{border-bottom:none}
+.vista-card ul li strong{color:var(--negro)}
+
+.subvista{
+  background:#ececdf;
+  padding:20px 24px;
+  margin:16px 0;
+  border-left:3px solid var(--verde);
+}
+.subvista h4{margin-top:0;color:var(--negro);font-size:13px}
+.subvista p{font-size:14px;margin-bottom:8px}
+.subvista p:last-child{margin-bottom:0}
+
+/* ============ ESTADOS PIPELINE ============ */
+.pipeline{
+  display:flex;
+  gap:6px;
+  margin:32px 0;
+  overflow-x:auto;
+  padding-bottom:10px;
+}
+.estado{
+  flex:0 0 auto;
+  min-width:140px;
+  padding:18px 20px 18px 28px;
+  background:#fff;
+  border:1px solid var(--linea);
+  position:relative;
+  font-size:12px;
+}
+.estado::before{
+  content:"";position:absolute;top:0;left:0;width:5px;height:100%;
+  background:var(--verde-dark);
+}
+.estado:nth-child(n+8)::before{background:var(--verde)}
+.estado:last-child::before{background:var(--negro)}
+.estado .e-num{
+  font-family:var(--mono);font-size:10px;color:var(--texto-muy-suave);
+}
+.estado .e-nom{font-weight:700;margin-top:4px;line-height:1.25}
+
+/* ============ MEDICIÓN / PREGUNTAS ============ */
+.preguntas{
+  display:grid;gap:24px;margin:32px 0;
+}
+.pregunta{
+  background:var(--negro);
+  color:#fff;
+  border:none;
+  padding:36px 40px;
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:28px;
+  align-items:start;
+  position:relative;
+  overflow:hidden;
+}
+.pregunta::after{
+  content:"";position:absolute;top:0;right:0;
+  width:80px;height:80px;
+  background:var(--verde);
+  clip-path:polygon(100% 0,0 0,100% 100%);
+  opacity:.4;
+}
+.pregunta .num{
+  font-family:var(--display);
+  font-size:64px;line-height:.9;
+  color:var(--verde);
+  font-weight:500;
+  font-style:italic;
+}
+.pregunta .txt{font-size:19px;line-height:1.45;font-weight:500;color:#fff}
+.pregunta .txt em{color:#aaa;font-style:italic;display:block;margin-top:10px;font-size:14.5px;font-weight:400;max-width:680px}
+
+/* ============ RIESGOS ============ */
+.riesgos{margin:32px 0}
+.riesgo{
+  display:grid;
+  grid-template-columns:50px 1fr;
+  gap:24px;
+  padding:24px 0;
+  border-bottom:1px solid var(--linea);
+  align-items:start;
+}
+.riesgo:first-child{border-top:1px solid var(--linea-fuerte)}
+.riesgo .rnum{
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--verde-dark);
+  font-weight:700;
+  padding-top:2px;
+}
+.riesgo h4{margin:0 0 6px;text-transform:none;font-size:16px;letter-spacing:0}
+.riesgo p{margin:0;font-size:14.5px;color:var(--texto-suave);max-width:760px}
+
+/* ============ FUERA DE ALCANCE ============ */
+.fuera{
+  background:#f3f3ee;
+  padding:32px 36px;
+  margin:32px 0;
+  border:1px dashed var(--texto-muy-suave);
+}
+.fuera h4{margin-top:0;color:var(--texto-suave)}
+.fuera ul{list-style:none;margin-top:14px}
+.fuera ul li{
+  padding:6px 0 6px 24px;
+  position:relative;
+  font-size:14px;
+  color:var(--texto-suave);
+}
+.fuera ul li::before{
+  content:"×";position:absolute;left:0;top:6px;
+  color:var(--texto-muy-suave);font-weight:700;
+}
+
+/* ============ TRANSVERSAL CHIPS ============ */
+.chips{
+  display:flex;flex-wrap:wrap;gap:8px;margin:20px 0;
+}
+.chip{
+  padding:10px 16px;
+  background:var(--bg-card);
+  border:1px solid var(--linea);
+  font-size:13px;
+  font-weight:500;
+  font-family:var(--sans);
+}
+.chip strong{color:var(--verde-dark);font-weight:700;margin-right:4px}
+
+/* ============ FOOTER ============ */
+footer{
+  background:var(--negro);
+  color:#aaa;
+  padding:60px 64px;
+  margin-top:0;
+  font-size:13px;
+  position:relative;
+  overflow:hidden;
+}
+footer::before{
+  content:"";position:absolute;top:0;left:0;
+  width:100%;height:3px;background:var(--verde);
+}
+footer .ftr-grid{
+  max-width:1080px;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:60px;
+}
+footer h5{
+  font-family:var(--mono);font-size:10px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--verde);
+  margin-bottom:14px;
+}
+footer p{color:#bbb;max-width:none}
+footer .gilroy-note{
+  margin-top:40px;font-family:var(--mono);font-size:10px;color:#666;
+  text-align:right;
+}
+
+/* ============ DETALLES TIPOGRÁFICOS ESPECIALES ============ */
+.first-letter::first-letter{
+  font-family:var(--display);
+  font-size:4.6em;
+  float:left;
+  line-height:.85;
+  margin:6px 14px 0 0;
+  color:var(--verde-dark);
+  font-weight:500;
+  font-style:italic;
+}
+
+/* Cifra grande */
+.bignum{
+  font-family:var(--display);
+  font-size:120px;line-height:1;
+  font-weight:500;
+  letter-spacing:-.04em;
+  color:var(--negro);
+  display:inline-block;
+}
+.bignum em{font-style:italic;color:var(--verde-dark)}
+
+.estadisticas{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:1px;
+  background:var(--linea);
+  border:1px solid var(--linea);
+  margin:32px 0;
+}
+.estad{
+  background:var(--bg-card);
+  padding:28px 24px;
+}
+.estad .e-num{
+  font-family:var(--display);
+  font-size:48px;
+  line-height:1;
+  font-weight:500;
+  letter-spacing:-.02em;
+  color:var(--negro);
+}
+.estad .e-num em{color:var(--verde-dark);font-style:italic}
+.estad .e-label{
+  font-family:var(--mono);font-size:11px;
+  text-transform:uppercase;letter-spacing:.08em;
+  color:var(--texto-suave);
+  margin-top:8px;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1100px){
+  .shell{grid-template-columns:1fr}
+  .sidebar{display:none}
+  .main{padding:0 32px 80px}
+  .pilares{grid-template-columns:repeat(3,1fr)}
+  .pilar{min-height:80px}
+  .matriz{grid-template-columns:80px repeat(4,1fr);font-size:10px}
+  .vista-card{grid-template-columns:1fr}
+  .vista-card .izq{padding:24px}
+  .vista-card .der{padding:24px}
+}
+@media (max-width: 640px){
+  .nav-top{padding:12px 18px}
+  .nav-top .meta{display:none}
+  .main{padding:0 20px 60px}
+  .hero{padding:50px 0 40px}
+  section{padding:50px 0}
+  .pilares{grid-template-columns:repeat(2,1fr)}
+  .estad .e-num{font-size:36px}
+  .pregunta{grid-template-columns:1fr;gap:8px}
+  .pregunta .num{font-size:36px}
+  .callout{padding:24px}
+  .matriz{font-size:9px;grid-template-columns:70px repeat(4,1fr)}
+  .matriz > div{padding:10px 8px}
+  footer{padding:40px 24px}
+  footer .ftr-grid{grid-template-columns:1fr;gap:32px}
+}
+
+/* Animaciones */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero h1, .hero .deck, .hero .label{
+  animation:fadeUp .8s ease-out backwards;
+}
+.hero .label{animation-delay:.05s}
+.hero h1{animation-delay:.15s}
+.hero .deck{animation-delay:.3s}
+.hero .meta-row{animation:fadeUp .8s ease-out .45s backwards}
+
+/* Detalles finos */
+.kbd{
+  font-family:var(--mono);font-size:11.5px;
+  padding:2px 8px;background:#eee;
+  border:1px solid var(--linea);
+  border-radius:3px;
+  color:var(--negro);
+}
+
+.flag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:10.5px;
+  padding:3px 10px;background:#fff3eb;color:var(--naranja);
+  text-transform:uppercase;letter-spacing:.1em;font-weight:700;
+  border:1px solid #ffdcc7;
+}
+.flag.verde{background:#e7faf0;color:#0a8b4b;border-color:#bce8d1}
+.flag.azul{background:#e7f1fc;color:var(--azul-dark);border-color:#c0d8f5}
+</style>
+</head>
+<body>
+
+<!-- =============== NAV TOP =============== -->
+<nav class="nav-top">
+  <div class="brand">
+
+    <!-- LOGO SELLO PRO: corchetes blancos + flecha verde + texto -->
+    <svg class="logo-sellopro" viewBox="0 0 110 56" xmlns="http://www.w3.org/2000/svg" aria-label="Sello PRO">
+      <!-- corchete superior izquierdo -->
+      <path d="M 4 4 L 4 14 M 4 4 L 14 4" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="square"/>
+      <!-- corchete superior derecho -->
+      <path d="M 106 4 L 106 14 M 106 4 L 96 4" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="square"/>
+      <!-- corchete inferior izquierdo -->
+      <path d="M 4 52 L 4 42 M 4 52 L 14 52" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="square"/>
+      <!-- corchete inferior derecho -->
+      <path d="M 106 52 L 106 42 M 106 52 L 96 52" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="square"/>
+      <!-- texto SELLO PRO -->
+      <text x="22" y="25" font-family="Manrope, sans-serif" font-weight="800" font-size="13" fill="#ffffff" letter-spacing="0.5">SELLO</text>
+      <text x="22" y="42" font-family="Manrope, sans-serif" font-weight="800" font-size="13" fill="#ffffff" letter-spacing="0.5">PRO</text>
+      <!-- flecha-comilla verde Sello PRO -->
+      <path d="M 68 16 L 92 16 L 92 26 L 78 26 L 78 40 L 68 40 Z" fill="#35d38b"/>
+      <path d="M 92 26 L 92 40 L 82 40 L 92 30 Z" fill="#35d38b"/>
+    </svg>
+
+    <span class="divisor"></span>
+
+    <!-- LOGO COMPROMISO PRO: texto blanco + flecha naranja -->
+    <svg class="logo-compromiso" viewBox="0 0 130 38" xmlns="http://www.w3.org/2000/svg" aria-label="Compromiso PRO">
+      <text x="0" y="14" font-family="Manrope, sans-serif" font-weight="800" font-size="11" fill="#ffffff" letter-spacing="0.3">COMPROMISO</text>
+      <text x="48" y="32" font-family="Manrope, sans-serif" font-weight="800" font-size="11" fill="#ffffff" letter-spacing="0.3">PRO</text>
+      <!-- flecha-comilla naranja Compromiso PRO -->
+      <path d="M 22 20 L 44 20 L 44 28 L 30 28 L 30 36 L 22 36 Z" fill="#e74100"/>
+      <path d="M 44 28 L 44 36 L 36 36 L 44 30 Z" fill="#e74100"/>
+    </svg>
+
+    <span class="divisor"></span>
+
+    <span class="crumb">Levantamiento</span>
+  </div>
+  <div class="meta">
+    <span><span class="dot"></span>v1.0 · documento vivo</span>
+    <span>Interno · CChC</span>
+  </div>
+</nav>
+
+<div class="shell">
+
+  <!-- =============== SIDEBAR =============== -->
+  <aside class="sidebar">
+    <h4>Contexto</h4>
+    <a href="#intro">Por qué este documento</a>
+    <a href="#sello">Qué es el Sello PRO</a>
+    <a href="#actores">Actores</a>
+
+    <h4>Concepto crítico</h4>
+    <a href="#cuestionarios">Los 12 cuestionarios</a>
+    <a href="#pilares">Los 7 pilares</a>
+
+    <h4>Vistas de la plataforma</h4>
+    <a href="#vista-equipo">Equipo Sello PRO</a>
+    <a href="#vista-empresa">Empresa socia</a>
+    <a href="#vista-admin">Consultor administrativo</a>
+    <a href="#vista-asesor">Asesor Sello PRO</a>
+    <a href="#vista-gerencia">Gerencia CChC</a>
+    <a href="#vista-panel">Panel de ingreso</a>
+
+    <h4>Operación</h4>
+    <a href="#estados">Estados del expediente</a>
+    <a href="#transversal">Funcionalidades transversales</a>
+
+    <h4>Encuadre</h4>
+    <a href="#fuera">Fuera de alcance</a>
+    <a href="#riesgos">Riesgos</a>
+    <a href="#medir">Cómo medir</a>
+  </aside>
+
+  <!-- =============== MAIN =============== -->
+  <main class="main">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <svg class="hero-iso" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <!-- corchetes verdes del Sello PRO -->
+        <path d="M 6 6 L 6 24 M 6 6 L 24 6" stroke="#35d38b" stroke-width="3" fill="none"/>
+        <path d="M 114 6 L 114 24 M 114 6 L 96 6" stroke="#35d38b" stroke-width="3" fill="none"/>
+        <path d="M 6 114 L 6 96 M 6 114 L 24 114" stroke="#35d38b" stroke-width="3" fill="none"/>
+        <path d="M 114 114 L 114 96 M 114 114 L 96 114" stroke="#35d38b" stroke-width="3" fill="none"/>
+        <!-- flecha-comilla verde grande al centro -->
+        <path d="M 38 38 L 90 38 L 90 56 L 56 56 L 56 90 L 38 90 Z" fill="#35d38b"/>
+        <path d="M 90 56 L 90 90 L 62 90 L 90 64 Z" fill="#35d38b"/>
+      </svg>
+
+      <div class="label">Documento de levantamiento · interno</div>
+      <h1>La plataforma <em>no es</em> un cuestionario.<br>Es donde una empresa <em>vive</em> dos años.</h1>
+      <p class="deck">Onboarding técnico y de negocio para el equipo que va a digitalizar el Sello PRO. Resume el contexto del programa, los doce cuestionarios, los siete pilares, las seis vistas y las decisiones de alcance ya tomadas — para que la implementación parta desde aquí, no desde cero.</p>
+
+      <div class="meta-row">
+        <div><span class="k">Programa</span><span class="v">Sello PRO · CChC</span></div>
+        <div><span class="k">Ciclo actual</span><span class="v">2 años + revalidación</span></div>
+        <div><span class="k">Empresas</span><span class="v">350+ a nivel nacional</span></div>
+        <div><span class="k">Cuestionarios</span><span class="v">12 (rubro × tamaño)</span></div>
+        <div><span class="k">Pilares</span><span class="v">7</span></div>
+      </div>
+    </header>
+
+    <!-- ============== INTRO ============== -->
+    <section id="intro">
+      <span class="sec-num">00 — Aclaración previa</span>
+      <h2>Por qué <em>este</em> documento existe</h2>
+      <p class="lead">No reemplaza una especificación técnica. La complementa por arriba, fijando el lenguaje y el alcance antes de que la implementación tome decisiones de modelo de datos que después cuesten revertir.</p>
+
+      <div class="callout">
+        <div class="tag">⚠ Lo que la plataforma NO es</div>
+        <p>No es un cuestionario digitalizado. No es un formulario web. No es una autoevaluación con upload de archivos. <strong>Es una plataforma operativa</strong> donde conviven cinco tipos de usuarios internos más la empresa socia, durante <strong>dos años de ciclo</strong>, gestionando contratos, evidencias, evaluaciones, planes de trabajo, reuniones, facturación, comunicación con socios y reportes ejecutivos.</p>
+        <p style="margin-top:14px">Quien siga pensando "Excel en la web" no entendió el problema. El objetivo estratégico es <strong>dejar de depender de consultores externos</strong> para entender qué pasa con las empresas certificadas y para generar análisis sobre el programa.</p>
+      </div>
+    </section>
+
+    <!-- ============== SELLO ============== -->
+    <section id="sello">
+      <span class="sec-num">01 — Núcleo</span>
+      <h2>Qué es el <em>Sello PRO</em></h2>
+      <p class="lead">Certificación de la CChC dentro del Compromiso PRO. Programa de pago, con cuotas según facturación de la empresa, acompañamiento de consultores y verificación documental y en terreno.</p>
+
+      <div class="estadisticas">
+        <div class="estad">
+          <div class="e-num"><em>2</em> años</div>
+          <div class="e-label">Ciclo actual</div>
+        </div>
+        <div class="estad">
+          <div class="e-num"><em>7</em></div>
+          <div class="e-label">Pilares de evaluación</div>
+        </div>
+        <div class="estad">
+          <div class="e-num"><em>12</em></div>
+          <div class="e-label">Cuestionarios distintos</div>
+        </div>
+        <div class="estad">
+          <div class="e-num">1<em>—</em>5</div>
+          <div class="e-label">Estrellas por criterio</div>
+        </div>
+        <div class="estad">
+          <div class="e-num">350<em>+</em></div>
+          <div class="e-label">Empresas a nivel nacional</div>
+        </div>
+      </div>
+
+      <div class="callout verde">
+        <div class="tag">✓ Ajuste de alcance</div>
+        <p>Documentos previos hablaban de <strong>ciclo de 3 años con auditorías externas anuales</strong>. <strong>Eso no aplica hoy.</strong> Hoy el ciclo es de 2 años con revalidación al año 2, sin auditoría externa. El tercer año y las auditorías quedan marcadas como <em>posible implementación futura</em>, no como requisito.</p>
+      </div>
+    </section>
+
+    <!-- ============== ACTORES ============== -->
+    <section id="actores">
+      <span class="sec-num">02 — Mapa humano</span>
+      <h2>Actores del sistema</h2>
+      <p class="lead">Siete tipos de usuario. Cada uno con su propia vista, sus propios permisos y sus propias urgencias. La matriz de roles × pantallas × acciones es parte de la entrega, no algo que se resuelva al final.</p>
+
+      <div class="roles-grid">
+        <div class="role">
+          <div class="role-num">A · 01</div>
+          <h4>Jefa de equipo</h4>
+          <div class="role-role">Dirige el programa. Mira meta, embudo, tipos de procesos. Necesita drill-down desde cualquier cifra al detalle.</div>
+          <div class="role-vista">→ Dashboard ejecutivo interno</div>
+        </div>
+        <div class="role">
+          <div class="role-num">A · 02</div>
+          <h4>Encargado de convenios</h4>
+          <div class="role-role">Gestiona alianzas y partners. Necesita una vista tipo CRM relacional.</div>
+          <div class="role-vista">→ CRM de relaciones</div>
+        </div>
+        <div class="role">
+          <div class="role-num">A · 03</div>
+          <h4>Encargado comercial</h4>
+          <div class="role-role">Procesos nuevos, revalidaciones, facturación. Pipeline y proyección de ingresos.</div>
+          <div class="role-vista">→ Pipeline + facturación</div>
+        </div>
+        <div class="role">
+          <div class="role-num">A · 04</div>
+          <h4>Gerencia CChC</h4>
+          <div class="role-role">Sponsor del programa. Dashboard en vivo, metas regionales, ranking de sedes.</div>
+          <div class="role-vista">→ Dashboard nacional</div>
+        </div>
+        <div class="role">
+          <div class="role-num">A · 05</div>
+          <h4>Consultor administrativo</h4>
+          <div class="role-role">Llamadas, contratos, agenda, soporte mail. Sostiene la operación sin evaluar.</div>
+          <div class="role-vista">→ Agenda + bandeja + contratos</div>
+        </div>
+        <div class="role">
+          <div class="role-num">A · 06</div>
+          <h4>Asesor Sello PRO</h4>
+          <div class="role-role">Núcleo operativo. Evalúa, va a terreno, define plan, cierra proceso. Toca todo el ciclo.</div>
+          <div class="role-vista">→ Ficha por empresa (denso)</div>
+        </div>
+        <div class="role">
+          <div class="role-num">A · 07</div>
+          <h4>Empresa socia</h4>
+          <div class="role-role">El socio que se certifica. Vive en la plataforma 2 años: autoevalúa, sube evidencia, sigue su plan.</div>
+          <div class="role-vista">→ Portal completo del socio</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== CUESTIONARIOS ============== -->
+    <section id="cuestionarios">
+      <span class="sec-num">03 — Concepto que más se ha malentendido</span>
+      <h2>Los <em>12 cuestionarios</em></h2>
+      <p class="lead">No es <strong>un</strong> cuestionario configurable. Son <strong>doce instrumentos distintos</strong>, uno por cada combinación de rubro × tamaño de empresa. Cada uno tiene su propio listado de criterios, su propia rúbrica y su propio subconjunto de criterios obligatorios.</p>
+
+      <h3>Cómo se compone la matriz</h3>
+      <p>Cuatro tamaños de empresa cruzados con tres tipos de rubro generan los 12 cuestionarios. La asignación al ingresar una empresa es automática según los datos de la ficha; el asesor puede corregirla con justificación.</p>
+
+      <div class="matriz">
+        <div class="hdr"></div>
+        <div class="hdr">Constructora-Inmobiliaria</div>
+        <div class="hdr">Contratista / Especialista</div>
+        <div class="hdr">Proveedor / Servicios</div>
+        <div class="hdr">Otros rubros</div>
+
+        <div class="row-label">Grande</div>
+        <div class="cell"><span class="num">1</span> 48 criterios <span style="opacity:.5">·ej·</span></div>
+        <div class="cell"><span class="num">2</span></div>
+        <div class="cell"><span class="num">3</span></div>
+        <div class="cell"><span class="num">4</span></div>
+
+        <div class="row-label">Mediana</div>
+        <div class="cell"><span class="num">5</span></div>
+        <div class="cell"><span class="num">6</span></div>
+        <div class="cell"><span class="num">7</span></div>
+        <div class="cell"><span class="num">8</span></div>
+
+        <div class="row-label">Pequeña</div>
+        <div class="cell"><span class="num">9</span></div>
+        <div class="cell"><span class="num">10</span></div>
+        <div class="cell"><span class="num">11</span></div>
+        <div class="cell"><span class="num">12</span></div>
+      </div>
+      <p style="font-size:13px;color:var(--texto-muy-suave);font-style:italic;margin-top:-10px">La matriz exacta de rubros y tamaños es propiedad del equipo Sello PRO y debe adjuntarse como anexo al equipo implementador. Aquí queda la estructura conceptual.</p>
+
+      <h3>Lo que la plataforma debe hacer con los cuestionarios</h3>
+      <ul style="list-style:none;margin:16px 0">
+        <li style="padding:10px 0 10px 28px;position:relative;border-bottom:1px dashed var(--linea);font-size:15px"><span style="position:absolute;left:0;top:10px;font-family:var(--mono);font-size:11px;color:var(--naranja);font-weight:700">01</span><strong>Asignación automática</strong> según rubro × tamaño al crear la empresa.</li>
+        <li style="padding:10px 0 10px 28px;position:relative;border-bottom:1px dashed var(--linea);font-size:15px"><span style="position:absolute;left:0;top:10px;font-family:var(--mono);font-size:11px;color:var(--naranja);font-weight:700">02</span><strong>Corrección manual</strong> por el asesor cuando el sistema se equivoque (empresa mixta, cambio de tamaño).</li>
+        <li style="padding:10px 0 10px 28px;position:relative;border-bottom:1px dashed var(--linea);font-size:15px"><span style="position:absolute;left:0;top:10px;font-family:var(--mono);font-size:11px;color:var(--naranja);font-weight:700">03</span><strong>Cuestionarios como maestros versionables.</strong> Cuando se actualiza un criterio o se cambia una rúbrica, queda trazado.</li>
+        <li style="padding:10px 0 10px 28px;position:relative;font-size:15px"><span style="position:absolute;left:0;top:10px;font-family:var(--mono);font-size:11px;color:var(--naranja);font-weight:700">04</span><strong>Versión congelada por empresa.</strong> Las empresas que ya iniciaron proceso mantienen su versión: no se les cambian las reglas a mitad de camino.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="tag">⚠ Por qué importa</div>
+        <p>Si el equipo implementador modela esto como <em>"un solo cuestionario con feature flags"</em>, se equivoca. La plataforma necesita gestionar los 12 como entidades separadas que comparten el lenguaje de pilares y estrellas, pero tienen contenido propio.</p>
+      </div>
+    </section>
+
+    <!-- ============== PILARES ============== -->
+    <section id="pilares">
+      <span class="sec-num">04 — Estructura común</span>
+      <h2>Los <em>7 pilares</em></h2>
+      <p class="lead">Cualquiera sea el cuestionario que se aplique, todo criterio pertenece a uno de estos siete pilares. Los pilares son la unidad de agregación para el dashboard de la empresa, para el resumen de la nota Sello PRO y para los reportes.</p>
+
+      <div class="pilares">
+        <div class="pilar p1"><span class="num">P1</span>Gobernanza</div>
+        <div class="pilar p2"><span class="num">P2</span>Trabajadores</div>
+        <div class="pilar p3"><span class="num">P3</span>Seguridad y Salud Laboral</div>
+        <div class="pilar p4"><span class="num">P4</span>Cadena de Valor</div>
+        <div class="pilar p5"><span class="num">P5</span>Comunidad</div>
+        <div class="pilar p6"><span class="num">P6</span>Medio Ambiente</div>
+        <div class="pilar p7"><span class="num">P7</span>Innovación y Productividad</div>
+      </div>
+
+      <p>Cada pilar tiene una <strong>ponderación distinta</strong> en la nota final (los porcentajes los define el equipo Sello PRO y son parte del maestro del cuestionario). Por ejemplo, en el cuestionario para "Constructora-Inmobiliaria Grande" la ponderación referencial es: Gobernanza 11%, Trabajadores 25%, Seguridad y Salud 18%, Cadena de Valor 11%, Comunidad 20%, Medio Ambiente 12%, Innovación y Productividad 3%.</p>
+      <p>La plataforma calcula automáticamente: promedio por pilar × ponderación = <strong>Nota Sello PRO</strong>.</p>
+    </section>
+
+    <!-- ============== VISTA EQUIPO ============== -->
+    <section id="vista-equipo">
+      <span class="sec-num">05 — Vista 1 de 6</span>
+      <h2><em>Equipo</em> Sello PRO</h2>
+      <p class="lead">Tres personas. Tres rangos de responsabilidad. No es una sola pantalla, son tres vistas distintas que arrancan según el rol.</p>
+
+      <div class="vista-card">
+        <div class="izq">
+          <div>
+            <div class="vista-num">V1 · A</div>
+            <div class="vista-nom">Jefa del<br>equipo</div>
+          </div>
+          <div class="vista-actor">Vista de mando. Mira números primero, baja al detalle solo si algo le hace ruido.</div>
+        </div>
+        <div class="der">
+          <h4>Qué ve al entrar</h4>
+          <ul>
+            <li><strong>KPIs del programa.</strong> Sellos activos, en proceso, cerrados en el año, % de cumplimiento de meta anual.</li>
+            <li><strong>Embudo de procesos por etapa.</strong> Cuántas empresas hay en autoevaluación, terreno, plan, evaluación final, certificadas, revalidación.</li>
+            <li><strong>Distribución por rubro y tamaño.</strong> Que se vea con qué tipo de cuestionario se está trabajando más.</li>
+            <li><strong>Drill-down desde cualquier número.</strong> Hace clic en "Antofagasta · 4 selladas" y aterriza en la lista de esas 4 empresas, con sus expedientes accesibles.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="vista-card">
+        <div class="izq">
+          <div>
+            <div class="vista-num">V1 · B</div>
+            <div class="vista-nom">Convenios<br>& alianzas</div>
+          </div>
+          <div class="vista-actor">Vista relacional. Lo suyo es vínculos, no procesos individuales.</div>
+        </div>
+        <div class="der">
+          <h4>Qué ve al entrar</h4>
+          <ul>
+            <li><strong>Listado de empresas socias</strong> + listado de aliados y partners institucionales.</li>
+            <li><strong>Convenios activos</strong>, próximos a vencer, renovaciones pendientes.</li>
+            <li><strong>Historial de contactos</strong> por entidad: quién habló con quién, cuándo, qué se acordó.</li>
+            <li><strong>Notas y próximas acciones</strong> tipo CRM clásico.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="vista-card">
+        <div class="izq">
+          <div>
+            <div class="vista-num">V1 · C</div>
+            <div class="vista-nom">Comercial<br>& seguimiento</div>
+          </div>
+          <div class="vista-actor">Vista de pipeline + plata. Procesos nuevos, revalidaciones, facturación pendiente.</div>
+        </div>
+        <div class="der">
+          <h4>Qué ve al entrar</h4>
+          <ul>
+            <li><strong>Empresas nuevas en ingreso</strong> y empresas en revalidación, separadas.</li>
+            <li><strong>Estado del sello</strong> por empresa: vigente, por vencer, vencido.</li>
+            <li><strong>Procesos pendientes de facturación.</strong> Pestaña dedicada: monto, etapa de cobro, factura emitida, pagada, días vencidos.</li>
+            <li><strong>Proyección de ingresos</strong> según el pipeline real (no estimación gruesa).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== VISTA EMPRESA ============== -->
+    <section id="vista-empresa">
+      <span class="sec-num">06 — Vista 2 de 6 · la más compleja</span>
+      <h2>Vista de la <em>empresa socia</em></h2>
+      <p class="lead first-letter">Aquí está donde más se equivocan los discoveries apurados: piensan que es una autoevaluación que termina cuando se envía. <strong>No.</strong> La empresa debe vivir dentro de la plataforma durante dos años. Esa es la vara real del proyecto. Si la empresa abre un mail o un Excel del consultor a los 6 meses de iniciado el proceso, la plataforma falló.</p>
+
+      <div class="subvista">
+        <h4>6.1 Onboarding y ficha de empresa</h4>
+        <p>Antes de cualquier evaluación, la empresa completa: datos legales, estructura organizacional básica, personas responsables (quién responde qué), contexto operativo (rubro confirmado, tamaño, regiones donde opera). Esta ficha <strong>determina el cuestionario asignado</strong>.</p>
+      </div>
+
+      <div class="subvista">
+        <h4>6.2 Autoevaluación inicial — pantalla POR criterio</h4>
+        <p>No es un scroll infinito de 30+ criterios. Es una pantalla por criterio que muestra: nombre y pilar, descripción clara, <strong>ejemplos simples de qué significa cada estrella del 1 al 5</strong>, selector de nota, <strong>espacio para subir múltiples evidencias</strong> (PDFs, fotos, planillas, links), campo de comentario. Progreso visible. Guarda como borrador.</p>
+      </div>
+
+      <div class="subvista">
+        <h4>6.3 Espera de revisión y visita a terreno</h4>
+        <p>Una vez enviada la autoevaluación, la empresa ve el estado de su proceso, puede subir evidencia adicional si el asesor se la pide, y ve la fecha programada de visita a terreno cuando el asesor la fija.</p>
+      </div>
+
+      <div class="subvista" style="border-left-color:var(--naranja)">
+        <h4 style="color:var(--naranja)">6.4 Plan de trabajo + seguimiento de 2 años — el corazón del producto</h4>
+        <p><strong>Después del diagnóstico</strong>, la empresa tiene una vista de seguimiento permanente durante los dos años. Resumen por pilar con notas autoevaluación / terreno / diagnóstico / <strong>meta acordada</strong>. Indicador visual de qué criterios alcanzan la meta y cuáles están rojos.</p>
+        <p>Al hacer clic en un criterio se abre: <strong>rúbrica detallada</strong> (qué significa cada estrella), <strong>verificadores</strong> exigidos por nivel, <strong>ejemplos</strong> de empresas que lo lograron, <strong>herramientas y guías sugeridas</strong>, espacio para subir avances, historial de evidencias y comentarios cruzados con el asesor. <strong>Criterios obligatorios marcados</strong> visualmente.</p>
+      </div>
+
+      <div class="subvista">
+        <h4>6.5 Módulo administrativo de la empresa</h4>
+        <p>Contrato, meses transcurridos y restantes, facturas y estado de pago, documentos formales, datos de contacto del consultor administrativo y del asesor asignados.</p>
+      </div>
+
+      <div class="subvista">
+        <h4>6.6 Canal de comunicación + muro de novedades</h4>
+        <p>Solicitudes generales al equipo Sello PRO (tipo ticket). Consultas por criterio dirigidas al asesor — con precaución de no saturar al asesor (posible solución: agregación semanal o sesión mensual de dudas). Muro de novedades del programa: la plataforma como canal de comunicación con socios, no solo como herramienta de evaluación.</p>
+      </div>
+    </section>
+
+    <!-- ============== VISTA CONSULTOR ADMIN ============== -->
+    <section id="vista-admin">
+      <span class="sec-num">07 — Vista 3 de 6</span>
+      <h2><em>Consultor</em> administrativo</h2>
+      <p class="lead">No evalúa. Sostiene la operación. Es el primer contacto humano de la empresa con el programa.</p>
+
+      <div class="vista-card">
+        <div class="izq">
+          <div>
+            <div class="vista-num">V3</div>
+            <div class="vista-nom">Consultor<br>administrativo</div>
+          </div>
+          <div class="vista-actor">Quien llama, agenda, persigue contratos y contesta el mail del Sello PRO.</div>
+        </div>
+        <div class="der">
+          <ul>
+            <li><strong>Agenda de llamadas</strong> y seguimientos por empresa.</li>
+            <li><strong>Bandeja de mails del Sello PRO</strong> con asignación por empresa.</li>
+            <li><strong>Generación de contrato.</strong> Arma el borrador, lo envía a legal CChC para oficializar, registra estado: borrador → enviado a legal → firmado → vigente.</li>
+            <li><strong>Coordinación de reuniones</strong> entre empresa y asesor (calendario integrado).</li>
+            <li><strong>Vista por empresa</strong> de todo lo administrativo: contrato, próximos hitos, próximas reuniones, últimas comunicaciones.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== VISTA ASESOR ============== -->
+    <section id="vista-asesor">
+      <span class="sec-num">08 — Vista 4 de 6 · la más densa</span>
+      <h2>Vista del <em>asesor</em> Sello PRO</h2>
+      <p class="lead">El asesor toca todo el proceso. La plantilla actual en Excel tiene cinco hojas — Info Empresa, Notas Criterios, Resumen Pilares, Terrenos, Plan Desarrollo. <strong>Esto es lo mínimo</strong> que la plataforma debe replicar. Y debe superarlo.</p>
+
+      <div class="subvista">
+        <h4>8.1 Listado de empresas asignadas</h4>
+        <p>Lista con estado, próxima acción, días desde última actividad, alertas de plazo.</p>
+      </div>
+
+      <div class="subvista">
+        <h4>8.2 Ficha de empresa — corazón de su trabajo</h4>
+        <p>Por cada empresa accede a: <strong>datos del proceso</strong> (fechas clave, evaluador, estado) · <strong>notas por criterio</strong> con cuatro columnas (autoevaluación, terreno, diagnóstico corregido, nota final) más mejora y observaciones · <strong>resumen por pilar</strong> con ponderaciones y promedio automático, y la <strong>Nota Sello PRO</strong> calculada · <strong>registro de visitas a terreno</strong> (fecha, tipo, proyecto/obra, ubicación, criterios evaluados, hallazgos, notas ajustadas, evidencia, responsable) · <strong>plan de desarrollo</strong> (nota actual, meta, acción de mejora, herramienta sugerida, responsable, fecha límite, % avance, estado).</p>
+      </div>
+
+      <div class="subvista" style="border-left-color:var(--naranja)">
+        <h4 style="color:var(--naranja)">8.3 Capacidades especiales — esto va más allá del Excel actual</h4>
+        <p style="margin-bottom:6px"><strong>Aplicabilidad de criterios:</strong> marcar un criterio como "no aplica" a esta empresa, con justificación obligatoria. Toda exclusión queda trazada.</p>
+        <p style="margin-bottom:6px"><strong>Modificación de fechas</strong> de entrega final o hitos intermedios, con justificación.</p>
+        <p style="margin-bottom:6px"><strong>Adjuntar antecedentes propios:</strong> el asesor también sube documentos al expediente.</p>
+        <p style="margin-bottom:6px"><strong>Notas de reunión:</strong> fecha, asistentes, temas, acuerdos, próximos pasos.</p>
+        <p style="margin-bottom:6px"><strong>Cierre de proceso:</strong> notas finales, informe de cierre, marcar empresa como sellada.</p>
+        <p style="margin-bottom:6px"><strong>Feedback estructurado</strong> por criterio (no solo verbal en reunión).</p>
+        <p><strong>Vista de pares</strong> — solo lectura — de qué hicieron otros asesores en empresas similares, para alinear criterios entre asesores.</p>
+      </div>
+    </section>
+
+    <!-- ============== VISTA GERENCIA ============== -->
+    <section id="vista-gerencia">
+      <span class="sec-num">09 — Vista 5 de 6</span>
+      <h2><em>Gerencia</em> CChC</h2>
+      <p class="lead">Dashboard ejecutivo en vivo. Es la vista que se proyecta en una reunión de directorio, no la que se opera día a día.</p>
+
+      <div class="vista-card">
+        <div class="izq">
+          <div>
+            <div class="vista-num">V5</div>
+            <div class="vista-nom">Gerencia<br>CChC</div>
+          </div>
+          <div class="vista-actor">Sponsor del programa. Mira metas país, regiones, proyección — no expedientes.</div>
+        </div>
+        <div class="der">
+          <ul>
+            <li><strong>Empresas selladas</strong> — acumulado total y del año en curso.</li>
+            <li><strong>En proceso</strong> segmentadas por etapa.</li>
+            <li><strong>% y cantidad</strong> de cumplimiento de meta nacional.</li>
+            <li><strong>Mapa de Chile</strong> con desglose por sede regional: meta, cumplimiento actual, ranking.</li>
+            <li><strong>Proyección de cierres.</strong> Lógica que estima qué empresas terminan en los próximos meses según etapa actual y plazos típicos. Ej: empresa en plan de trabajo hace 7 meses + ciclo de 2 años → cierre proyectado en ~5 meses.</li>
+            <li><strong>Distribución por rubro y tamaño.</strong></li>
+            <li><strong>Tendencia mensual</strong> de nuevas inscripciones y cierres.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== VISTA PANEL ============== -->
+    <section id="vista-panel">
+      <span class="sec-num">10 — Vista 6 de 6</span>
+      <h2>Panel de <em>ingreso</em> de socio nuevo</h2>
+      <p class="lead">Cuadro de mando exclusivo del equipo Sello PRO para dar de alta una empresa. Tiene que ser <strong>sólido y ágil</strong>: es la puerta de entrada al sistema y se usa todas las semanas.</p>
+
+      <div class="vista-card">
+        <div class="izq">
+          <div>
+            <div class="vista-num">V6</div>
+            <div class="vista-nom">Admin<br>panel</div>
+          </div>
+          <div class="vista-actor">Ingreso de empresa nueva. Carga de antecedentes. Creación de usuarios. Asignación de equipo.</div>
+        </div>
+        <div class="der">
+          <ul>
+            <li><strong>Crear empresa.</strong> RUT, razón social, nombre fantasía, rubro, tamaño, sede regional.</li>
+            <li><strong>Asignar consultor administrativo y asesor</strong> en la creación.</li>
+            <li><strong>Crear los usuarios de la empresa.</strong> Login para las personas responsables del lado del socio.</li>
+            <li><strong>Subir documentos del expediente inicial:</strong> contrato, carta de interés, antecedentes, cualquier archivo con nombre libre. Todos quedan archivados en el panel de la empresa indexados por su ID.</li>
+            <li><strong>Definir fechas clave</strong> del proceso.</li>
+            <li><strong>Generar el cuestionario correspondiente</strong> automáticamente según rubro × tamaño.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== ESTADOS ============== -->
+    <section id="estados">
+      <span class="sec-num">11 — Lógica operativa</span>
+      <h2>Estados del <em>expediente</em></h2>
+      <p class="lead">Cada estado dispara permisos, vistas y alertas distintas. La plataforma debe gestionar al menos estos doce.</p>
+
+      <div class="pipeline">
+        <div class="estado"><div class="e-num">01</div><div class="e-nom">Ingreso</div></div>
+        <div class="estado"><div class="e-num">02</div><div class="e-nom">Contrato vigente</div></div>
+        <div class="estado"><div class="e-num">03</div><div class="e-nom">Autoevaluación en curso</div></div>
+        <div class="estado"><div class="e-num">04</div><div class="e-nom">Pendiente revisión</div></div>
+        <div class="estado"><div class="e-num">05</div><div class="e-nom">Terreno programado/realizado</div></div>
+        <div class="estado"><div class="e-num">06</div><div class="e-nom">Diagnóstico elaborándose</div></div>
+        <div class="estado"><div class="e-num">07</div><div class="e-nom">Plan de trabajo definido</div></div>
+        <div class="estado"><div class="e-num">08</div><div class="e-nom">En seguimiento (2 años)</div></div>
+        <div class="estado"><div class="e-num">09</div><div class="e-nom">Evaluación final</div></div>
+        <div class="estado"><div class="e-num">10</div><div class="e-nom">Sellada</div></div>
+        <div class="estado"><div class="e-num">11</div><div class="e-nom">En revalidación</div></div>
+        <div class="estado"><div class="e-num">12</div><div class="e-nom">Cerrada / no renovada</div></div>
+      </div>
+    </section>
+
+    <!-- ============== TRANSVERSAL ============== -->
+    <section id="transversal">
+      <span class="sec-num">12 — Lo que cruza todo</span>
+      <h2>Funcionalidades <em>transversales</em></h2>
+      <p class="lead">Cosas que no son de una sola vista. Sin estas, el ciclo de 2 años se cae porque las empresas se pierden, los asesores duplican esfuerzo y la trazabilidad desaparece.</p>
+
+      <div class="chips">
+        <div class="chip"><strong>↳</strong> Notificaciones y recordatorios automáticos por criterio del plan</div>
+        <div class="chip"><strong>↳</strong> Muro de noticias del programa</div>
+        <div class="chip"><strong>↳</strong> Buscador global interno</div>
+        <div class="chip"><strong>↳</strong> Trazabilidad de cambios (auditoría: quién, qué, cuándo)</div>
+        <div class="chip"><strong>↳</strong> Exportaciones a Excel y PDF de cualquier vista</div>
+        <div class="chip"><strong>↳</strong> Roles y permisos granulares (matriz rol × pantalla × acción)</div>
+        <div class="chip"><strong>↳</strong> Almacenamiento de archivos por empresa, indexado, clasificado por tipo</div>
+        <div class="chip"><strong>↳</strong> Versionado de cuestionarios</div>
+      </div>
+    </section>
+
+    <!-- ============== FUERA DE ALCANCE ============== -->
+    <section id="fuera">
+      <span class="sec-num">13 — Disciplina de alcance</span>
+      <h2>Fuera de <em>esta entrega</em></h2>
+      <p class="lead">Marcar explícitamente lo que queda para después evita que se infle el scope o se atrase la entrega bajo la excusa de funcionalidades que nadie pidió hoy.</p>
+
+      <div class="fuera">
+        <h4>Posible implementación futura</h4>
+        <ul>
+          <li>Auditorías externas anuales (hoy no aplican; ciclo es de 2 años).</li>
+          <li>Tercer año del ciclo y renovaciones más allá de la primera revalidación.</li>
+          <li>Integraciones con sistemas externos de CChC más allá del expediente local.</li>
+          <li>Explotación analítica avanzada / BI sobre el dataset histórico una vez consolidado.</li>
+          <li>Rol propio de verificadores externos o auditores.</li>
+          <li>App móvil nativa (la plataforma debe ser responsive desde el día uno; la app es otra cosa).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============== RIESGOS ============== -->
+    <section id="riesgos">
+      <span class="sec-num">14 — Honestidad operativa</span>
+      <h2>Riesgos a <em>nombrar</em> en voz alta</h2>
+      <p class="lead">Si un riesgo no se nombra al inicio, se cobra al final. Esto es lo que en el lado de negocio nos preocupa.</p>
+
+      <div class="riesgos">
+        <div class="riesgo">
+          <div class="rnum">R · 01</div>
+          <div>
+            <h4>Subestimar la complejidad</h4>
+            <p>Si después de un mes de discovery la plataforma sigue siendo descrita como "una autoevaluación", el problema es de comprensión del dominio, no técnico. Hay que insistir en el ciclo de 2 años y en las seis vistas.</p>
+          </div>
+        </div>
+        <div class="riesgo">
+          <div class="rnum">R · 02</div>
+          <div>
+            <h4>Mezcla de scope con versiones viejas</h4>
+            <p>Documentos previos hablaban de 3 años y auditorías. Eso queda como futuro, no como entrega actual. Si se mezcla, la estimación se infla y nadie cumple plazos.</p>
+          </div>
+        </div>
+        <div class="riesgo">
+          <div class="rnum">R · 03</div>
+          <div>
+            <h4>Subestimar la migración</h4>
+            <p>Hay muchas planillas heterogéneas hoy: nombres de hoja distintos, columnas inconsistentes, archivos perdidos en mails de consultores. La estructura objetivo está; el trabajo de limpieza y migración manual no es trivial.</p>
+          </div>
+        </div>
+        <div class="riesgo">
+          <div class="rnum">R · 04</div>
+          <div>
+            <h4>Subestimar la matriz de permisos</h4>
+            <p>Cinco roles internos + la empresa, cada uno con vistas distintas y acciones distintas. Si se deja para el final, hay que reescribir endpoints.</p>
+          </div>
+        </div>
+        <div class="riesgo">
+          <div class="rnum">R · 05</div>
+          <div>
+            <h4>Diseño tipo "formulario gigante"</h4>
+            <p>Si la autoevaluación termina siendo un scroll con todos los criterios del cuestionario en una sola página, fracasa. Tiene que ser una experiencia por criterio, con contexto, evidencia y ayuda inline.</p>
+          </div>
+        </div>
+        <div class="riesgo">
+          <div class="rnum">R · 06</div>
+          <div>
+            <h4>No considerar la fase de seguimiento de 2 años</h4>
+            <p>La mayor parte del valor está en mantener a la empresa activa durante el ciclo, no solo en evaluarla al inicio. Si la plataforma deja a la empresa sin razones para entrar después del diagnóstico, fracasa la promesa estratégica.</p>
+          </div>
+        </div>
+        <div class="riesgo">
+          <div class="rnum">R · 07</div>
+          <div>
+            <h4>Modelar los 12 cuestionarios como uno solo</h4>
+            <p>Tentación clásica del lado técnico: "es el mismo schema con un campo de tipo". El contenido es distinto, las rúbricas son distintas, los obligatorios son distintos. Versionado por cuestionario es no negociable.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== MEDIR ============== -->
+    <section id="medir">
+      <span class="sec-num">15 — Validación</span>
+      <h2>Tres preguntas para <em>medir</em> si esto funciona</h2>
+      <p class="lead">Cuando llegue cualquier propuesta de arquitectura, demo o entregable, estas son las tres preguntas que el negocio va a hacer. Si la respuesta a alguna es "todavía no", falta producto.</p>
+
+      <div class="preguntas">
+        <div class="pregunta">
+          <div class="num">01</div>
+          <div class="txt">¿Puede una empresa vivir 2 años aquí adentro sin volver a abrir un mail o un Excel del consultor?
+            <em>Si la respuesta es no, falta funcionalidad de seguimiento, no de evaluación.</em>
+          </div>
+        </div>
+        <div class="pregunta">
+          <div class="num">02</div>
+          <div class="txt">¿Puede el equipo Sello PRO contestar "cuántas empresas selladas tenemos en Antofagasta este año" sin pedírselo a un consultor?
+            <em>Si la respuesta es no, no se cumplió el objetivo estratégico del proyecto: dejar de depender de consultores como dueños de la información.</em>
+          </div>
+        </div>
+        <div class="pregunta">
+          <div class="num">03</div>
+          <div class="txt">¿Puede un asesor nuevo que entra mañana tomar una empresa y ver todo su historial sin preguntar a nadie?
+            <em>Si la respuesta es no, falta consolidación del expediente y trazabilidad. Y el bus factor sigue siendo cero.</em>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- =============== FOOTER =============== -->
+<footer>
+  <div class="ftr-grid">
+    <div>
+      <h5>Sobre este documento</h5>
+      <p>Levantamiento de negocio para el equipo de implementación de la plataforma Sello PRO. Reemplaza versiones anteriores que hablaban de "MVP" o "cuestionario digital". Documento vivo: se actualiza a medida que el equipo de negocio refina el alcance.</p>
+    </div>
+    <div>
+      <h5>Marca</h5>
+      <p>Colores y tipografía siguen el brandbook Compromiso PRO + Sello PRO. Imagotipo (la flecha-comilla) es propiedad de CChC.</p>
+    </div>
+    <div>
+      <h5>Próximos anexos</h5>
+      <p>· Matriz de permisos rol × pantalla × acción<br>· Lista exacta de los 12 cuestionarios<br>· Set de datos de prueba (empresa ficticia con proceso completo)<br>· Diagrama entidad-relación oficial por fase</p>
+    </div>
+  </div>
+  <div class="gilroy-note">CChC · Compromiso PRO · Sello PRO · 2026</div>
+</footer>
+
+<script>
+// Highlight de sección activa en sidebar
+const links = document.querySelectorAll('.sidebar a');
+const sections = document.querySelectorAll('section[id], header[id]');
+
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const id = entry.target.id;
+      links.forEach(l=>{
+        l.classList.toggle('active', l.getAttribute('href') === '#'+id);
+      });
+    }
+  });
+}, {rootMargin:'-30% 0px -60% 0px'});
+
+sections.forEach(s=>observer.observe(s));
+</script>
+
+</body>
+</html>
