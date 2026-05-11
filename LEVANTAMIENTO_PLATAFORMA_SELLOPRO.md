@@ -10,7 +10,7 @@
 
 Esto no es un cuestionario. No es un formulario. No es una autoevaluación digitalizada. Es una **plataforma operativa** donde conviven cinco tipos de usuarios (equipo Sello PRO, gerencia, empresa socia, consultor administrativo y asesor) durante un ciclo de **dos años** por empresa, gestionando contratos, evidencias, evaluaciones, planes de trabajo, reuniones, facturación y reportes.
 
-Quien lea esto y siga pensando "un Excel en la web" no entendió el problema. La plataforma reemplaza el rol del consultor como **dueño de la información** y le devuelve ese control al equipo Sello PRO de la CChC.
+Pensar este proyecto como "un Excel en la web" deja afuera el verdadero objetivo. La plataforma reemplaza el rol del consultor como **dueño de la información** y le devuelve ese control al equipo Sello PRO de la CChC.
 
 **Objetivo estratégico real:** dejar de depender de consultores externos para entender qué pasa con las empresas selladas y para generar análisis sobre el programa.
 
@@ -55,7 +55,7 @@ Este es uno de los puntos que más se ha malentendido. Vale la pena dedicarle un
 - El asesor debe poder **corregir la asignación** si el sistema se equivocó (por ejemplo, una empresa que cambió de tamaño o que opera entre dos rubros).
 - Los cuestionarios son **maestros versionables**: cuando el equipo Sello PRO actualiza un criterio o cambia una rúbrica, ese cambio debe quedar trazado. **Las empresas que ya iniciaron proceso con una versión anterior mantienen su versión**, no se les cambia las reglas a mitad de camino.
 
-Por qué importa: si el equipo externo modela esto como "un solo cuestionario configurable", se equivoca. Son 12 instrumentos distintos que comparten el lenguaje de pilares y estrellas, pero tienen contenido propio. La plataforma necesita gestionar los 12 como entidades separadas.
+Por qué importa: modelar esto como "un solo cuestionario configurable" no funciona en este caso. Son 12 instrumentos distintos que comparten el lenguaje de pilares y estrellas, pero tienen contenido propio. La plataforma necesita gestionar los 12 como entidades separadas.
 
 ---
 
@@ -101,7 +101,7 @@ Vista de pipeline + facturación:
 
 ### 4.2 Vista empresa socia (la más compleja)
 
-Aquí está donde la mayoría se equivoca: piensan que es una autoevaluación y termina. **No.** La empresa debe **vivir dentro de la plataforma** durante dos años. Esa es la vara.
+Aquí es donde es más fácil perder el foco: pensar que es una autoevaluación y termina. **No.** La empresa debe **vivir dentro de la plataforma** durante dos años. Esa es la vara.
 
 **4.2.1 Onboarding y datos de la empresa**
 
@@ -291,7 +291,7 @@ Estas cosas vienen, pero **no ahora**. Marcarlas como "futuro" evita que el equi
 
 ## 8. Riesgos del proyecto (a nombrar en voz alta con el equipo externo)
 
-1. **Subestimación de la complejidad**: si después de un mes todavía piensan que es "una autoevaluación", el problema es de entendimiento, no técnico.
+1. **Subestimación de la complejidad**: si al avanzar el levantamiento la plataforma sigue descrita como "una autoevaluación", conviene revisar la comprensión del dominio antes que la parte técnica.
 2. **Mezcla de scope**: confundir lo que está en este documento con el ciclo completo de 3 años + auditorías que aparece en documentos antiguos.
 3. **Subestimación de migración**: hay muchas planillas heterogéneas hoy. La estructura objetivo está, pero el trabajo de migración manual no es trivial.
 4. **Subestimación de permisos**: hay cinco roles internos + la empresa, cada uno con vistas distintas y acciones distintas. La matriz de permisos no es opcional.
@@ -312,7 +312,7 @@ Tres preguntas simples para validar cualquier propuesta que llegue del equipo ex
 
 ## 10. Cierre
 
-Este documento es el levantamiento de negocio del lado interno, hecho para apurar y enfocar el discovery que está tomando demasiado tiempo. No es la especificación técnica. Esa la entrega el equipo de implementación a partir de aquí, con: arquitectura propuesta, modelo de datos, plan por fases, estimación y propuesta de validación con usuarios reales.
+Este documento es el levantamiento de negocio del lado interno, hecho para enfocar y acelerar el trabajo de descubrimiento conjunto. No es la especificación técnica. Esa la entrega el equipo de implementación a partir de aquí, con: arquitectura propuesta, modelo de datos, plan por fases, estimación y propuesta de validación con usuarios reales.
 
 Lo que sí se exige: que el plan por fases respete que **la plataforma es una sola** aunque se construya por partes, y que no se entregue un "pedazo de autoevaluación" como si fuese el producto.
 
