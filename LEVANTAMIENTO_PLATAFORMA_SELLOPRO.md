@@ -12,14 +12,14 @@ Esto no es un cuestionario. No es un formulario. No es una autoevaluación digit
 
 Quien lea esto y siga pensando "un Excel en la web" no entendió el problema. La plataforma reemplaza el rol del consultor como **dueño de la información** y le devuelve ese control al equipo Sello PRO de la CChC.
 
-**Objetivo estratégico real:** dejar de depender de consultores externos para entender qué pasa con las empresas certificadas y para generar análisis sobre el programa.
+**Objetivo estratégico real:** dejar de depender de consultores externos para entender qué pasa con las empresas selladas y para generar análisis sobre el programa.
 
 ---
 
 ## 1. Qué es el Sello PRO (versión corta para alinear)
 
-- Certificación CChC dentro del Compromiso PRO.
-- Ciclo de **dos años**: año 1 implementación y certificación, año 2 revalidación.
+- Programa de acompañamiento de la CChC dentro del Compromiso PRO.
+- Ciclo de **dos años**: año 1 acompañamiento e implementación, año 2 revalidación.
 - **Siete pilares** de evaluación: Gobernanza, Trabajadores, Seguridad y Salud Laboral, Cadena de Valor, Comunidad, Medio Ambiente, Innovación y Productividad.
 - **Cinco niveles de logro** por criterio (1 a 5 estrellas, 5 es el máximo).
 - **Doce cuestionarios distintos** según la combinación rubro × tamaño de la empresa. Cada cuestionario tiene su propio set de criterios (cantidad y contenido varían entre cuestionarios). Por ejemplo, el cuestionario para "Constructora-Inmobiliaria Grande" tiene 48 criterios; otros tipos de empresa pueden tener más o menos.
@@ -40,7 +40,7 @@ Quien lea esto y siga pensando "un Excel en la web" no entendió el problema. La
 | **Gerencia CChC** | Sponsor del programa | Dashboard en vivo, metas regionales |
 | **Consultor administrativo** | Llamadas, contratos, agenda, soporte mail | Agenda + bandeja + contratos |
 | **Asesor Sello PRO** | Núcleo operativo: evalúa, va a terreno, define plan, cierra proceso | Vista por empresa con todo el expediente |
-| **Empresa socia** | El socio que se certifica | Portal completo de su proceso |
+| **Empresa socia** | El socio acompañado | Portal completo de su proceso |
 
 ---
 
@@ -74,7 +74,7 @@ Hoy son tres personas con roles distintos. Cada una necesita ver algo diferente 
 Lo primero que ve al entrar:
 
 - KPIs del programa: cuántos sellos activos, cuántos en proceso, cuántos cerrados en el año, % de cumplimiento de meta anual.
-- Distribución de procesos por etapa (embudo): empresas en autoevaluación, en visita a terreno, en plan de trabajo, en evaluación final, certificadas, en revalidación.
+- Distribución de procesos por etapa (embudo): empresas en autoevaluación, en visita a terreno, en plan de trabajo, en evaluación final, selladas, en revalidación.
 - Tipos de procesos abiertos por rubro y tamaño.
 - Capacidad de hacer *drill-down* desde cualquier número hasta la lista de empresas que lo componen.
 
@@ -255,7 +255,7 @@ Los estados que la plataforma debe gestionar (mínimo):
 7. **Plan de trabajo definido**.
 8. **En seguimiento** (la fase larga de los dos años).
 9. **Evaluación final en curso**.
-10. **Sellada** — certificación obtenida.
+10. **Sellada** — acompañamiento completado, Sello PRO entregado.
 11. **En revalidación** (año 2).
 12. **Cerrada / no renovada** — caso de salida del programa.
 
